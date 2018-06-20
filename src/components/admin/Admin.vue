@@ -1,31 +1,41 @@
 <template>
   <div class="admin">
-    <Nav></Nav>
-    <div class="tool">tool</div>
-    <div class="numberCard">numberCard</div>
-    <div class="chart">chart</div>
-    <div class="transaction">transaction</div>
-    <div class="order">order</div>
+    <Nav @toggleLock="isLock = !isLock" :isLock="isLock"></Nav>
+    <div class="container" :class="{'lock':isLock}">
+      <Tool></Tool>
+      <NumberCard></NumberCard>
+      <div class="chart">chart</div>
+      <div class="transaction">transaction</div>
+      <div class="order">order</div>
+    </div>
   </div>
 </template>
 
 <script>
 
 import Nav from '@/components/admin/Nav'
+import Tool from '@/components/admin/Tool'
+import NumberCard from '@/components/admin/NumberCard'
 
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      isLock: true
     }
   },
   components: {
     Nav,
+    Tool,
+    NumberCard
   }
 }
 </script>
 
 <style lang="sass">
+$color-bg: #F5F7FA
+$color-red: #FF345D
+
 *
   box-sizing: border-box
 
@@ -36,12 +46,10 @@ body
   margin: 0
   font-size: 20px
   font-family: 'Helvetica Neue', '微軟正黑體', sans-serif
+  background-color: $color-bg
 
 .admin
   position: relative
-  display: flex
-  flex-flow: row wrap
-
 .nav
   position: absolute
   left: 0
@@ -49,32 +57,41 @@ body
   width: 250px
   height: 100vh
 
-.tool
+.container.lock
+  margin-left: 250px
+  width: calc(100% - 250px)
+.container
+  position: relative
+  display: flex
+  flex-flow: row wrap
   width: 100%
-  height: 70px
-  background-color: red
 
-.numberCard
-  width: 100%
-  height: 150px
-  background-color: green
+  .tool
+    width: 100%
+    height: 80px
 
-.chart
-  width: 100%
-  height: 400px
-  background-color: yellow
+  .numberCard
+    width: 100%
 
-.transaction, .order
-  width: 50%
-  height: 450px
-  background-color: black
+  .chart
+    width: 100%
+    height: 400px
+    background-color: yellow
 
-.order
-  background-color: #fff
-    // <nav class="nav">nav</nav>
-    // <div class="tool">tool</div>
-    // <div class="numberCard">numberCard</div>
-    // <div class="chart">chart</div>
-    // <div class="transaction">transaction</div>
-    // <div class="order">order</div>
+  .transaction, .order
+    width: 50%
+    height: 450px
+    background-color: black
+
+  .order
+    background-color: #fff
+
+// 通用style
+.tag
+  line-height: 1
+  font-weight: 300
+  font-size: 16px
+  background-color: $color-red
+  padding: 3px 6px
+  border-radius: 100px
 </style>

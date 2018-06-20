@@ -1,7 +1,7 @@
 <template>
   <div class="nav" :style="bgUrl(bg)">
     <a href="/" class="logo">the f2e</a>
-    <div class="lock-btn"><i class="ion" :class="isLock==true ? 'ion-md-radio-button-off' : 'ion-md-radio-button-on'"></i></div>
+    <div class="lock-btn" @click="lock"><i class="ion" :class="isLock==true ? 'active ion-md-radio-button-on' : 'ion-md-radio-button-off'"></i></div>
     <ul>
       <li class="active">
         <a href="/"><i class="ion ion-md-cart"></i><span>Orders</span><i class="ion ion-md-arrow-dropdown"></i></a>
@@ -27,16 +27,20 @@
 
 <script>
 export default {
+  props: ['isLock'],
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      bg: 'https://images.pexels.com/photos/990818/pexels-photo-990818.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800',
-      isLock: true
+      bg: 'https://images.pexels.com/photos/990818/pexels-photo-990818.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1200&w=800'
     }
   },
   methods: {
     bgUrl(url){
       return `backgroundImage: url('${url}')`
+    },
+    lock(){
+      this.$emit('toggleLock')
+      console.log("觸發")
     }
   }
 }
@@ -74,9 +78,10 @@ $color-red: #FF345D
     letter-spacing: 1px
     font-size: 30px
     font-weight: 300
-
   .lock-btn
     width: 25%
+    i.active
+      color: $color-red
 
   ul
     list-style: none
@@ -107,13 +112,7 @@ $color-red: #FF345D
         transform: rotate(-180deg)
         text-align: center
       .tag
-        line-height: 1
-        font-weight: 300
-        font-size: 16px
-        background-color: $color-red
-        padding: 3px 6px
         margin-right: 10px
-        border-radius: 100px
 
       .subItem
         display: none
