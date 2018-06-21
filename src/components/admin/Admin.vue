@@ -4,18 +4,19 @@
     <div class="container" :class="{'lock':isLock}">
       <Tool></Tool>
       <NumberCard></NumberCard>
-      <div class="chart">chart</div>
-      <div class="transaction">transaction</div>
+      <Chart></Chart>
+      <Statistics>transaction</Statistics>
       <div class="order">order</div>
     </div>
   </div>
 </template>
 
 <script>
-
 import Nav from '@/components/admin/Nav'
 import Tool from '@/components/admin/Tool'
 import NumberCard from '@/components/admin/NumberCard'
+import Chart from '@/components/admin/Chart'
+import Statistics from '@/components/admin/Statistics'
 
 export default {
   data () {
@@ -27,7 +28,9 @@ export default {
   components: {
     Nav,
     Tool,
-    NumberCard
+    NumberCard,
+    Chart,
+    Statistics
   }
 }
 </script>
@@ -60,6 +63,7 @@ body
 .container.lock
   margin-left: 250px
   width: calc(100% - 250px)
+  padding: 0 30px
 .container
   position: relative
   display: flex
@@ -75,13 +79,11 @@ body
 
   .chart
     width: 100%
-    height: 400px
-    background-color: yellow
+    height: 500px
 
-  .transaction, .order
+  .statistics, .order
     width: 50%
-    height: 450px
-    background-color: black
+    height: 465px
 
   .order
     background-color: #fff
