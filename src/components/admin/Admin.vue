@@ -38,6 +38,8 @@ export default {
 <style lang="sass">
 $color-bg: #F5F7FA
 $color-red: #FF345D
+$color-font: #263238
+$color-gray: #a6a9ae
 
 *
   box-sizing: border-box
@@ -82,8 +84,12 @@ body
     height: 500px
 
   .statistics, .order
-    width: 50%
     height: 465px
+  .statistics
+    width: calc(35% - 30px)
+    margin-right: 30px
+  .order
+    width: 65%
 
   .order
     background-color: #fff
@@ -96,4 +102,16 @@ body
   background-color: $color-red
   padding: 3px 6px
   border-radius: 100px
+
+.title
+  font-size: 22px
+  letter-spacing: 1px
+  text-transform: uppercase
+  color: $color-font
+
+.subtitle
+  font-size: 18px
+  color: darken($color-gray, 25)
+  letter-spacing: 0.5px
+
 </style>

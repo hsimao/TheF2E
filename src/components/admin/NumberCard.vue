@@ -2,7 +2,7 @@
   <div class="numberCard">
     <div class="card" v-for="card in cards">
       <div class="number">$ {{card.number}}</div>
-      <div class="title">Total {{card.type}}</div>
+      <div class="card-title">Total {{card.type}}</div>
       <div class="icon" :class="card.icon"></div>
     </div>
   </div>
@@ -47,7 +47,7 @@ $color-secondary: #23bcbb
   display: flex
   flex-flow: row wrap
   justify-content: space-between
-  padding: 10px 30px 30px 30px
+  padding-top: 10px
 
   .card
     position: relative
@@ -67,7 +67,7 @@ $color-secondary: #23bcbb
       font-weight: 300
       z-index: 2
 
-    .title
+    &-title
       position: relative
       font-size: 16px
       font-weight: 300

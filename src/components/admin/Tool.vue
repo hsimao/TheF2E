@@ -34,7 +34,6 @@ $color-font: #263238
   position: relative
   display: flex
   align-items: center
-  padding: 0 30px
   .search
     height: 35px
     min-width: 220px
