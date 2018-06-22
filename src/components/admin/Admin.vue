@@ -6,8 +6,9 @@
       <NumberCard></NumberCard>
       <Chart></Chart>
       <Statistics>transaction</Statistics>
-      <div class="order">order</div>
+      <ShoppingCart></ShoppingCart>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -17,6 +18,8 @@ import Tool from '@/components/admin/Tool'
 import NumberCard from '@/components/admin/NumberCard'
 import Chart from '@/components/admin/Chart'
 import Statistics from '@/components/admin/Statistics'
+import ShoppingCart from '@/components/admin/ShoppingCart'
+import Footer from '@/components/admin/Footer'
 
 export default {
   data () {
@@ -30,7 +33,9 @@ export default {
     Tool,
     NumberCard,
     Chart,
-    Statistics
+    Statistics,
+    ShoppingCart,
+    Footer
   }
 }
 </script>
@@ -55,16 +60,21 @@ body
 
 .admin
   position: relative
+
 .nav
   position: absolute
   left: 0
   top: 0
   width: 250px
-  height: 100vh
+  height: 100%
+
+.footer
+  width: calc(100% - 250px)
+  margin-left: 250px
 
 .container.lock
-  margin-left: 250px
   width: calc(100% - 250px)
+  margin-left: 250px
   padding: 0 30px
 .container
   position: relative
@@ -83,16 +93,14 @@ body
     width: 100%
     height: 500px
 
-  .statistics, .order
+  .statistics, .shoppingCart
     height: 465px
   .statistics
     width: calc(35% - 30px)
     margin-right: 30px
-  .order
+  .shoppingCart
     width: 65%
 
-  .order
-    background-color: #fff
 
 // 通用style
 .tag

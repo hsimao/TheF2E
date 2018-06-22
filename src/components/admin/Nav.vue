@@ -2,24 +2,24 @@
   <div class="nav" :style="bgUrl(bg)">
     <a href="/" class="logo">the f2e</a>
     <div class="lock-btn" @click="lock"><i class="ion" :class="isLock==true ? 'active ion-md-radio-button-on' : 'ion-md-radio-button-off'"></i></div>
-    <ul>
-      <li class="active">
-        <a href="/"><i class="ion ion-md-cart"></i><span>Orders</span><i class="ion ion-md-arrow-dropdown"></i></a>
-        <div class="subItem"><a href="/">Orders1</a></div>
-        <div class="subItem"><a href="/">Orders2</a></div>
-        <div class="subItem"><a href="/">Orders3</a></div>
+    <ul @click="navToggle()">
+      <li class="orders" data-type="orders">
+        <a href="#"><i class="ion ion-md-cart"></i><span>Orders</span><i class="ion ion-md-arrow-dropdown"></i></a>
+        <div class="subItem"><a href="#">Orders1</a></div>
+        <div class="subItem"><a href="#">Orders2</a></div>
+        <div class="subItem"><a href="#">Orders3</a></div>
       </li>
-      <li>
-        <a href="/"><i class="ion ion-ios-cube"></i><span>Product</span><i class="ion ion-md-arrow-dropdown"></i></a>
-        <div class="subItem"><a href="/">Product1</a></div>
-        <div class="subItem"><a href="/">Product2</a></div>
-        <div class="subItem"><a href="/">Product3</a></div>
+      <li class="product" data-type="product">
+        <a href="#"><i class="ion ion-ios-cube"></i><span>Product</span><i class="ion ion-md-arrow-dropdown"></i></a>
+        <div class="subItem"><a href="#">Product1</a></div>
+        <div class="subItem"><a href="#">Product2</a></div>
+        <div class="subItem"><a href="#">Product3</a></div>
       </li>
-      <li>
-        <a href="/"><i class="ion ion-ios-chatboxes"></i><span>Message</span><div class="tag">2</div><i class="ion ion-md-arrow-dropdown"></i></a>
-        <div class="subItem"><a href="/">Message1</a></div>
-        <div class="subItem"><a href="/">Message2</a></div>
-        <div class="subItem"><a href="/">Message3</a></div>
+      <li class="message" data-type="message">
+        <a href="#"><i class="ion ion-ios-chatboxes"></i><span>Message</span><div class="tag">2</div><i class="ion ion-md-arrow-dropdown"></i></a>
+        <div class="subItem"><a href="#">Message1</a></div>
+        <div class="subItem"><a href="#">Message2</a></div>
+        <div class="subItem"><a href="#">Message3</a></div>
       </li>
     </ul>
   </div>
@@ -40,9 +40,32 @@ export default {
     },
     lock(){
       this.$emit('toggleLock')
-      console.log("觸發")
-    }
-  }
+    },
+    navToggle(){
+      let ul = event.target.closest('ul')
+      let lis = [...ul.querySelectorAll('li')]
+      let targetLi = event.target.closest('li')
+      let items = targetLi.querySelectorAll('.subItem')
+      let type = targetLi.dataset.type
+      let height
+
+      //清除所有 item active狀態跟展開高度
+      lis.forEach((item)=>{
+        item.classList.remove('active')
+        item.style.height = ''
+      })
+
+      //添加展開動畫
+      targetLi.classList.add('active')
+      height = parseInt(getComputedStyle(items[0]).height) * items.length + targetLi.clientHeight
+      TweenMax.to(targetLi, .3, {
+        height: height,
+        ease: Power1.easeIn
+      })
+
+    },
+  },
+
 }
 </script>
 
@@ -61,7 +84,7 @@ $color-red: #FF345D
     left: 0
     width: 100%
     height: 100%
-    background-color: rgba(black,0.8)
+    background-color: rgba(black,0.75)
     z-index: -1
 
   .logo,.lock-btn
@@ -91,6 +114,8 @@ $color-red: #FF345D
       background-color: rgba($color-white,0.125)
       margin-bottom: 5px
       padding-left: 26px
+      height: 50px
+      overflow: hidden
       a
         display: flex
         height: 50px
@@ -115,10 +140,11 @@ $color-red: #FF345D
         margin-right: 10px
 
       .subItem
-        display: none
+        visibility: hidden
         padding-left: 20px
         border-left: 1px solid $color-white
         margin-left: 10px
+        transition: all .3s
         a
           font-weight: 300
           font-size: 18px
@@ -134,6 +160,5 @@ $color-red: #FF345D
             background-color: $color-white
 
 .nav ul li.active .subItem
-  display: block !important
-
+  visibility: visible
 </style>
