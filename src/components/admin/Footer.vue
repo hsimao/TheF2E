@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <p class="text">Filter - The F2E 前端修練精神時光屋 [第二週賽事] | 高雄旅遊景點API應用 | Front End Development by HSI-MAO CHEN</p>
+    <p class="text">Admin order 後台管理介面 - The F2E 前端修練精神時光屋 [第三週賽事] | Front End Development by HSI-MAO CHEN</p>
     <a class="link" href="https://github.com/hsimao/" target="_blank"><i class="icon ion-logo-github"></i></a><a class="link" href="https://codepen.io/hsimao" target="_blank"><i class="icon ion-logo-codepen"></i></a>
   </footer>
 </template>
