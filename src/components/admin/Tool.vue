@@ -30,6 +30,10 @@ $color-red: #FF345D
 $color-gray: #a6a9ae
 $color-font: #263238
 
+@mixin rwd($breakpoint)
+	@if $breakpoint == sm
+		@media (max-width: 568px) { @content }
+
 .tool
   position: relative
   display: flex
@@ -44,6 +48,8 @@ $color-font: #263238
     border: solid 1px $color-gray
     font-size: 16px
     font-weight: 300
+    +rwd(sm)
+      min-width: 80%
   .search + i
     font-size: 22px
     margin-left: -30px
@@ -53,6 +59,11 @@ $color-font: #263238
     display: flex
     justify-content: flex-end
     align-items: center
+    +rwd(sm)
+      > *
+        display: none
+      i.ion-md-list
+        display: block
     > *
       margin-left: 30px
     > i

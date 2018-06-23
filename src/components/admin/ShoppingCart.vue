@@ -60,6 +60,12 @@ $color-font: #263238
 $color-primary: #45e994
 $color-secondary: #23bcbb
 
+@mixin rwd($breakpoint)
+	@if $breakpoint == sm
+		@media (max-width: 568px) { @content }
+	@if $breakpoint == pad
+		@media (max-width: 768px) { @content }
+
 .shoppingCart
   background-color: $color-white
   box-shadow: 0 20px 40px 0 rgba(black,0.2)
@@ -71,15 +77,22 @@ table.carts
   margin-left: -30px
   margin-top: 20px
   border-collapse: collapse
+  table-layout: fixed
   tr + tr
     border-top: 1px solid darken($color-white,10)
   th,td
+    width: 20%
     padding: 13px 30px
     font-size: 16px
     text-align: left
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
   th
     padding: 16px 30px
     background-color: lighten($color-gray,20)
+  td:nth-child(2)
+    white-space: initial
   td
     vertical-align: top
     img
@@ -89,4 +102,28 @@ table.carts
   td:last-child
     text-align: center
     color: $color-red
+
+  // red
+  th:not(:first-child)
+    +rwd(pad)
+      padding: 16px 10px
+    +rwd(sm)
+      padding: 16px 5px
+  td:not(:first-child)
+    +rwd(pad)
+      padding: 13px 10px
+    +rwd(sm)
+      padding: 13px 5px
+  th:last-child,td:last-child
+    +rwd(sm)
+      display: none
+  th,td
+    +rwd(sm)
+      width: 25%
+  th:nth-child(3),td:nth-child(3)
+    +rwd(sm)
+      width: 15%
+      text-align: center
+  th:nth-child(4),td:nth-child(4)
+    padding-right: 30px
 </style>

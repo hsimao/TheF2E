@@ -1,5 +1,6 @@
 <template>
-  <div class="nav" :style="bgUrl(bg)">
+  <div class="nav" :style="bgUrl(bg)" :class="{'open' : open}">
+    <div class="open-btn" @click="open = !open"><i class="ion ion-md-arrow-dropright"></i></div>
     <a href="/" class="logo">the f2e</a>
     <div class="lock-btn" @click="lock"><i class="ion" :class="isLock==true ? 'active ion-md-radio-button-on' : 'ion-md-radio-button-off'"></i></div>
     <ul class="items" @click="navToggle()">
@@ -35,7 +36,8 @@ export default {
       itemH: 0,
       current: '',
       eItemBox: null,
-      eItems: null
+      eItems: null,
+      open: false
 
     }
   },
@@ -79,6 +81,10 @@ export default {
         })
     },
 
+    openNav(){
+      console.log("hi")
+    },
+
     domInit(){
       let itemEl = document.querySelector('.orders a')
       this.itemH = parseInt(getComputedStyle(itemEl).height)
@@ -98,11 +104,18 @@ $color-red: #FF345D
 $color-primary: #45e994
 $color-secondary: #23bcbb
 
+@mixin rwd($breakpoint)
+	@if $breakpoint == sm
+		@media (max-width: 568px) { @content }
+
 .nav
   background-size: cover
   z-index: 10
   box-shadow: 0 20px 40px 0 rgba(black, 0.2)
   transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+  +rwd(sm)
+    margin-left: -70px
+
   &:before
     content: ''
     position: absolute
@@ -112,6 +125,32 @@ $color-secondary: #23bcbb
     height: 100%
     background-color: rgba(black,0.75)
     z-index: -1
+
+  .open-btn
+    position: absolute
+    display: none
+    top: 200px
+    left: 50px
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    z-index: 20
+    color: $color-white
+    font-size: 35px
+    background-color: $color-primary
+    text-align: center
+    cursor: pointer
+    transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+    +rwd(sm)
+      display: block
+
+    i
+      position: absolute
+      top:  0
+      left: 5px
+      width: 100%
+      &:before
+        line-height: 40px
 
   .logo,.lock-btn
     display: inline-block
@@ -133,6 +172,7 @@ $color-secondary: #23bcbb
     letter-spacing: 1px
     font-weight: 300
     background-color: $color-primary
+    overflow: hidden
     transition: all .6s cubic-bezier(0.175, 0.885, 0.32, 1.275)
     &:before
       content: ''
@@ -167,6 +207,8 @@ $color-secondary: #23bcbb
       background-color: $color-primary
       opacity: 1
       transition: all .6s
+    +rwd(sm)
+      display: none
     &:hover
       &:before
         width: 40px
@@ -253,6 +295,31 @@ $color-secondary: #23bcbb
       i
         font-size: 24px
         padding-right: 0
+
+.nav:hover
+  +rwd(sm)
+    width: 55px
+
+.nav.open
+  +rwd(sm)
+    width: 250px
+    margin-left: 0px
+    .open-btn
+      left: 230px
+      transform: rotate(-180deg)
+    .logo
+      width: 70%
+      margin-left: 0px
+      font-size: 30px
+      background-color: transparent
+      &:before
+        display: none
+    .items
+      li
+        padding-left: 26px
+        i
+          font-size: 24px
+          padding-right: 0
 
 .nav ul li.active
   .subItem

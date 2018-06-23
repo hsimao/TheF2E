@@ -43,14 +43,19 @@ $color-font: #263238
 $color-primary: #45e994
 $color-secondary: #23bcbb
 
+@mixin rwd($breakpoint)
+	@if $breakpoint == sm
+		@media (max-width: 568px) { @content }
+	@if $breakpoint == md
+		@media (max-width: 1024px) { @content }
+
 .numberCard
   display: flex
   flex-flow: row wrap
   justify-content: space-between
-
   .card
     position: relative
-    width: 23%
+    width: calc(25% - 16px)
     height: 170px
     background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898
     background-blend-mode: multiply,multiply
@@ -59,6 +64,11 @@ $color-secondary: #23bcbb
     color: $color-white
     overflow: hidden
     box-shadow: 0 4px 6px 0 rgba(black,0.2)
+    +rwd(md)
+      width: calc(50% - 8px)
+      margin-bottom: 16px
+    +rwd(sm)
+      width: 100%
 
     .number
       position: relative

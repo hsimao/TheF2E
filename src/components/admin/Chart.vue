@@ -99,6 +99,10 @@ window.onload = function(){
 <style lang="sass" scoped>
 $color-white: #fff
 
+@mixin rwd($breakpoint)
+	@if $breakpoint == md
+		@media (max-width: 1024px) { @content }
+
 .chart
   margin-top: 30px
   margin-bottom: 30px
@@ -106,6 +110,11 @@ $color-white: #fff
   background-color: $color-white
   border-radius: 4px
   overflow: hidden
+  +rwd(md)
+    margin-top: 15px
+    min-height: 250px
+    height: auto
+
   .title
     position: relative
     top: 20px

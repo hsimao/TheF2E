@@ -20,7 +20,6 @@ import Chart from '@/components/admin/Chart'
 import Statistics from '@/components/admin/Statistics'
 import ShoppingCart from '@/components/admin/ShoppingCart'
 import Footer from '@/components/admin/Footer'
-
 export default {
   data () {
     return {
@@ -45,6 +44,12 @@ $color-bg: #F5F7FA
 $color-red: #FF345D
 $color-font: #263238
 $color-gray: #a6a9ae
+
+@mixin rwd($breakpoint)
+	@if $breakpoint == sm
+		@media (max-width: 568px) { @content }
+	@if $breakpoint == md
+		@media (max-width: 1024px) { @content }
 
 *
   box-sizing: border-box
@@ -71,9 +76,13 @@ body
 .footer
   width: calc(100% - 55px)
   margin-left: 55px
+  +rwd(sm)
+    width: 100%
+    margin-left: 0
 .footer.lock
   width: calc(100% - 250px)
   margin-left: 250px
+
 
 .container.lock
   width: calc(100% - 250px)
@@ -85,6 +94,10 @@ body
   padding: 0 30px
   width: calc(100% - 55px)
   margin-left: 55px
+  +rwd(sm)
+    padding: 0 15px
+    width: 100%
+    margin-left: 0
 
   .tool
     width: 100%
@@ -102,8 +115,14 @@ body
   .statistics
     width: calc(35% - 30px)
     margin-right: 30px
+    +rwd(md)
+      width: 100%
+      margin-right: 0
+      margin-bottom: 30px
   .shoppingCart
     width: 65%
+    +rwd(md)
+      width: 100%
 
 
 // 通用style
