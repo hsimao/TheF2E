@@ -1,0 +1,23 @@
+$color-bg: #F5F7FA
+$color-white: #fff
+$color-red: #FF345D
+$color-gray: #a6a9ae
+$color-font: #263238
+$color-primary: #45e994
+$color-secondary: #23bcbb
+
+@mixin rwd($breakpoint)
+	@if $breakpoint == xs
+		@media (max-width: 375px) { @content }
+	@if $breakpoint == sm
+		@media (max-width: 568px) { @content }
+	@if $breakpoint == pad
+		@media (max-width: 768px) { @content }
+	@if $breakpoint == md
+		@media (max-width: 1024px) { @content }
+	@if $breakpoint == lg
+		@media (max-width: 1200px) { @content }
+
+
+@mixin hello
+    border: solid 10px red

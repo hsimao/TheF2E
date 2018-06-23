@@ -25,15 +25,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$color-white: #fff
-$color-red: #FF345D
-$color-gray: #a6a9ae
-$color-font: #263238
-
-@mixin rwd($breakpoint)
-	@if $breakpoint == sm
-		@media (max-width: 568px) { @content }
-
 .tool
   position: relative
   display: flex

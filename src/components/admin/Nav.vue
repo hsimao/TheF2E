@@ -99,15 +99,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$color-white: #fff
-$color-red: #FF345D
-$color-primary: #45e994
-$color-secondary: #23bcbb
-
-@mixin rwd($breakpoint)
-	@if $breakpoint == sm
-		@media (max-width: 568px) { @content }
-
 .nav
   background-size: cover
   z-index: 10

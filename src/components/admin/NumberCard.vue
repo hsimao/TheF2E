@@ -36,19 +36,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$color-white: #fff
-$color-red: #FF345D
-$color-gray: #a6a9ae
-$color-font: #263238
-$color-primary: #45e994
-$color-secondary: #23bcbb
-
-@mixin rwd($breakpoint)
-	@if $breakpoint == sm
-		@media (max-width: 568px) { @content }
-	@if $breakpoint == md
-		@media (max-width: 1024px) { @content }
-
 .numberCard
   display: flex
   flex-flow: row wrap

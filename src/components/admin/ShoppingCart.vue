@@ -53,19 +53,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$color-white: #fff
-$color-red: #FF345D
-$color-gray: #a6a9ae
-$color-font: #263238
-$color-primary: #45e994
-$color-secondary: #23bcbb
-
-@mixin rwd($breakpoint)
-	@if $breakpoint == sm
-		@media (max-width: 568px) { @content }
-	@if $breakpoint == pad
-		@media (max-width: 768px) { @content }
-
 .shoppingCart
   background-color: $color-white
   box-shadow: 0 20px 40px 0 rgba(black,0.2)

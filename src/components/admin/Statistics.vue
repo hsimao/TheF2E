@@ -38,13 +38,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$color-white: #fff
-$color-red: #FF345D
-$color-gray: #a6a9ae
-$color-font: #263238
-$color-primary: #45e994
-$color-secondary: #23bcbb
-
 .statistics
   background-color: $color-white
   box-shadow: 0 20px 40px 0 rgba(black,0.2)

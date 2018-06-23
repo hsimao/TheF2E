@@ -11,13 +11,6 @@ export default {
 </script>
 
 <style lang="sass" scoped>
-$color-white: #fff
-$color-red: #FF345D
-$color-gray: #a6a9ae
-$color-font: #263238
-$color-primary: #45e994
-$color-secondary: #23bcbb
-
 .footer
   display: flex
   justify-content: center

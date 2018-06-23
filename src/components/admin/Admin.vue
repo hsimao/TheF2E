@@ -40,17 +40,6 @@ export default {
 </script>
 
 <style lang="sass">
-$color-bg: #F5F7FA
-$color-red: #FF345D
-$color-font: #263238
-$color-gray: #a6a9ae
-
-@mixin rwd($breakpoint)
-	@if $breakpoint == sm
-		@media (max-width: 568px) { @content }
-	@if $breakpoint == md
-		@media (max-width: 1024px) { @content }
-
 *
   box-sizing: border-box
 
