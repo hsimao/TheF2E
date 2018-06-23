@@ -1,6 +1,6 @@
 <template>
   <div class="admin">
-    <Nav @toggleLock="isLock = !isLock" :isLock="isLock"></Nav>
+    <Nav :class="{'lock':isLock}" @toggleLock="isLock = !isLock" :isLock="isLock"></Nav>
     <div class="container" :class="{'lock':isLock}">
       <Tool></Tool>
       <NumberCard></NumberCard>
@@ -8,7 +8,7 @@
       <Statistics>transaction</Statistics>
       <ShoppingCart></ShoppingCart>
     </div>
-    <Footer></Footer>
+    <Footer :class="{'lock':isLock}"></Footer>
   </div>
 </template>
 
@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      isLock: true
+      isLock: false
     }
   },
   components: {
@@ -65,22 +65,26 @@ body
   position: absolute
   left: 0
   top: 0
-  width: 250px
+  width: 55px
   height: 100%
 
 .footer
+  width: calc(100% - 55px)
+  margin-left: 55px
+.footer.lock
   width: calc(100% - 250px)
   margin-left: 250px
 
 .container.lock
   width: calc(100% - 250px)
   margin-left: 250px
-  padding: 0 30px
 .container
   position: relative
   display: flex
   flex-flow: row wrap
-  width: 100%
+  padding: 0 30px
+  width: calc(100% - 55px)
+  margin-left: 55px
 
   .tool
     width: 100%
@@ -121,5 +125,4 @@ body
   font-size: 18px
   color: darken($color-gray, 25)
   letter-spacing: 0.5px
-
 </style>

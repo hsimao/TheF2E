@@ -47,7 +47,6 @@ $color-secondary: #23bcbb
   display: flex
   flex-flow: row wrap
   justify-content: space-between
-  padding-top: 10px
 
   .card
     position: relative
