@@ -5,3 +5,9 @@
 
 #### 操作畫面
 ![image](https://github.com/hsimao/TheF2E/blob/master/demo.gif)
+
+### Product Gallery - The F2E 第四週
+#### live demo https://codepen.io/hsimao/full/xzybMg/
+
+#### 操作畫面
+![image](https://github.com/hsimao/TheF2E/blob/master/gallery.gif)

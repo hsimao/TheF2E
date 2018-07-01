@@ -50,8 +50,24 @@
         <div class="number">05</div>
         <span>Men’s jacket</span>
       </div>
-      <div class="gallery-item item-6">6</div>
-      <div class="gallery-item item-7">7</div>
+      <div class="gallery-item item-6">
+        <div class="border"></div>
+        <div class="rectangle"></div>
+        <div class="line"></div>
+        <div class="img"></div>
+        <div class="gallery-title" data-line="VINTAGE DENIM">VINTAGE DENIM</div>
+        <div class="number">06</div>
+        <span>Men’s classic</span>
+      </div>
+      <div class="gallery-item item-7">
+        <div class="border"></div>
+        <div class="rectangle"></div>
+        <div class="line"></div>
+        <div class="img"></div>
+        <div class="gallery-title" data-line="EDITION">EDITION</div>
+        <div class="number">07</div>
+        <span>Men’s shirts</span>
+      </div>
     </div>
   </div>
 </template>
@@ -135,10 +151,9 @@ body
   margin: 0 auto
   padding: 20px
   > *
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif
 
 .gallery
-  width: 100%
   +gridRep(20, 100, 8, 120)
   .header
     +gridPos(1, 2, 1, -1)
@@ -293,12 +308,12 @@ body
     .gallery-title
       +gridPos(2, 4, 1, 2)
       justify-self: end
+      align-self: start
       writing-mode: vertical-lr
-      +titleStyle2(left, 43, 62)
-        transform: rotate(-180deg)
+      +titleStyle2(left, 43, 58)
+        transform: scale(-1)
         &:before,&:after
-          line-height: 0px
-          width: 20px
+          transform: scaleX(-1)
     .border
       +gridPos(1, span 2, 1, span 2)
       left: 60px
@@ -346,5 +361,69 @@ body
       +gridPos(2, 3, 3, 5)
       justify-self: end
       left: 130px
+
+  .item-6
+    +gridPos(14, 19, 4 , -1)
+    +gridRep(5, 100, 5, 120)
+    .img
+      +gridPos(2, span 4, 2, span 4)
+      background-image: url('https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=334&q=80')
+    .gallery-title
+      +gridPos(1, 2, 3, -1)
+      +titleStyle1
+      align-self: end
+    .border
+      +gridPos(5, 6, 2, -1)
+      top: 50px
+      height: 100px
+      width: 480px
+    .rectangle
+      +gridPos(4, 6, 1, 2)
+      justify-self: end
+      height: 200px
+      width: 60px
+    .number
+      +gridPos(3, 4, 1, 2)
+      justify-self: end
+      align-self: end
+    .line
+      display: none
+    span
+      +gridPos(5, 6, 3, 5)
+      justify-self: center
+      align-self: end
+      top: 30px
+
+  .item-7
+    +gridPos(16, -1, 1, 4)
+    +gridRep(5, 100, 3, 120)
+    .img
+      +gridPos(2, -1, 1, 3)
+      background-image: url('https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjF9&s=c3fe320bd592fb75fb54bf245817450d&auto=format&fit=crop&w=1534&q=80')
+    .gallery-title
+      +gridPos(2, 4, 3, 4)
+      writing-mode: vertical-lr
+      justify-self: start
+      +titleStyle2(left, 44, 59)
+        &:before,&:after
+          transform: scaleX(-1)
+    .border
+      +gridPos(1, 4, 1, 3)
+      top: 50px
+      left: 60px
+      height: 300px
+    .rectangle
+      +gridPos(4, -1, 3, 4)
+      height: 200px
+      width: 120px
+    .number
+      +gridPos(5, 6, 3, 4)
+      justify-self: end
+      align-self: end
+    .line
+      display: none
+    span
+      +gridPos(1, 2, 1, 3)
+      align-self: end
 
 </style>
