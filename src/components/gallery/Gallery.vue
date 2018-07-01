@@ -189,9 +189,8 @@ body
     .line
       width: 240px
       height: 100px
-      // background: linear-gradient(-45deg, $colorPrimary 0%, $colorPrimary 20%, transparent 20%, transparent 40%,$colorPrimary 40%, $colorPrimary 60%, transparent 60%, transparent 80%,$colorPrimary 80%, $colorPrimary 100%)
-      // background-size: 66px 100px
       background: linear-gradient(-45deg, $colorPrimary 0px, $colorPrimary 20px, transparent 20px, transparent 40px,$colorPrimary 40px, $colorPrimary 60px, transparent 60px, transparent 80px,$colorPrimary 80px, $colorPrimary 100px)
+      // background: repeating-linear-gradient(-45deg,#50e3c2,#50e3c2 20px,transparent 0,transparent 40px)
       background-size: 56px 56px
       background-position: 100% 0%
       z-index: 10
