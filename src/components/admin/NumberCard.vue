@@ -1,6 +1,6 @@
 <template>
   <div class="numberCard">
-    <div class="card" v-for="card in cards">
+    <div class="card" v-for="(card, index) in cards" :key="index">
       <div class="number">$ {{card.number}}</div>
       <div class="card-title">Total {{card.type}}</div>
       <div class="icon" :class="card.icon"></div>
