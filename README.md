@@ -7,7 +7,7 @@
 1. 切版
 2. sidebar event
 3. chart.js
-4. component
+4. Vue Component
 5. ui 參考 https://pixinvent.com/apex-angular-4-bootstrap-admin-template/demo-1/dashboard/dashboard1
 
 #### 操作畫面
